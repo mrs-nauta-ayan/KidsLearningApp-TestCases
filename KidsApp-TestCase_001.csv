@@ -1,0 +1,16 @@
+Test Case Id,Requirement Id,Title,Objective,Preconditions,Test Steps,Test Data,Expected Result,Piority,Status
+TC_KIDSAPP_001,REQ-001,Advisory Warning Trigger,Verify advisory warning appears only when screen time ? 20 minutes,"Parent logged in, child profile set","1. Set screen time to 15 ? Observe warning
+2. Set screen time to 20 ? Observe warning
+3. Set screen time to 25 ? Observe warning","Screen time: 15, 20, 25 minutes",Warning appears only at 20 minutes and above,High,Not Run
+TC_KIDSAPP_002,REQ-002,Password Prompt After Screen Time Expiry,Verify password prompt appears after screen time ends,"Parent logged in, child profile set","1. Set screen time to 15
+2. Allow time to expire",Screen time: 15 minutes,Password prompt appears requiring parent's birth year,High,Not Run
+TC_KIDSAPP_003,REQ-003,Valid Password Entry,Verify valid password (1940 - 2000) allows continuation,Screen time expired,1. Enter password 1975,Password: 1975,App resumes for 5 minutes,High,Not Run
+TC_KIDSAPP_004,REQ-004,Invalid Password Entry,Verify invalid password (outside 1940 - 2000) is rejected,Screen time expired,1. Enter password 2005,Password: 2005,"Access denied, app does not continue",Medium,Not Run
+TC_KIDSAPP_005,REQ-005,Password Re-Prompt After 5 Minutes,Verify password prompt reappears after 5 minutes of resumed usage,Screen time expired,"1. Enter valid password 1980
+2. Use app for 5 minutes",Password: 1980,Password prompt reappears after 5 minutes,Medium,Not Run
+TC_KIDSAPP_006,REQ-006,No Password Entered,Verify app self-closes if password is not entered,Screen time expired,"1. Allow screen time to expire
+2. Do not enter password",N/A,"Countdown appears, app self-closes",High,Not Run
+TC_KIDSAPP_007,REQ-007,Boundary Value Analysis - Password Year,Verify boundary values for password year,Screen time expired,"1. Enter 1940 ? Valid
+2. Enter 2000 ? Valid
+3. Enter 1939 ? Invalid
+4. Enter 2001 ? Invalid","Passwords: 1940, 2000, 1939, 2001",Only 1940 - 2000 accepted,High,Not Run
